@@ -34,6 +34,7 @@ class Chef
 
         @port = '3306'
         @template_source = nil
+        @cookbook_source = nil
 
         @allow_remote_root = false
         @remove_anonymous_users = true
@@ -58,6 +59,15 @@ class Chef
       def template_source(arg = nil)
         set_or_return(
           :template_source,
+          arg,
+          :kind_of => String
+          )
+      end
+
+      # attribute :cookbook_source, kind_of: String
+      def cookbook_source(arg = nil)
+        set_or_return(
+          :cookbook_source,
           arg,
           :kind_of => String
           )

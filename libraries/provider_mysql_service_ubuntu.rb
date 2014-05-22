@@ -161,6 +161,7 @@ class Chef
                 cookbook 'mysql'
               else
                 source new_resource.template_source
+                cookbook new_resource.cookbook_source unless new_resource.cookbook_source.nil?
               end
               owner 'mysql'
               group 'mysql'

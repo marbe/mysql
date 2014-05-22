@@ -49,6 +49,7 @@ needed to run a simple mysql_service with a minimal configuration.
       port '3307'
       data_dir '/data'
       template_source 'custom.erb'
+      cookbook_source 'external_cookbook'
       allow_remote_root true
       root_network_acl ['10.9.8.7/6, '1.2.3.4/5']
       remove_anonymous_users false
@@ -75,6 +76,12 @@ The `template_source` parameter allows the user to override the
 default minimal template used by the `mysql_service` resource. When
 omitted, it will select one shipped with the cookbook based on the
 MySQL version.
+
+The `cookbook_source` parameter allows the user to override the
+cookbook where the default minimal template specified via `template_source`
+is retrieved. It is considered only whrn used with `template_source`.
+When omitted, it will consider the cookbook using the `mysql_service`
+resource.
 
 The `allow_remote_root` parameter allows the user to specify whether
 remote connections from the mysql root user. When set to true, it is
